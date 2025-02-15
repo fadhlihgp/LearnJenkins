@@ -8,11 +8,12 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                git 'https://fadhlihgp@github.com/fadhlihgp/LearnJenkins.git'
-            }
-        }
+         stage('Checkout Code') {
+              steps {
+                  git branch: '**', credentialsId: 'github-credentials', url: 'https://github.com/fadhlihgp/LearnJenkins.git'
+              }
+         }
+
 
         stage('Determine Deployment Target') {
             steps {
