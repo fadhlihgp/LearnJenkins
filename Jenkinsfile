@@ -11,7 +11,6 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git 'https://fadhlihgp@github.com/fadhlihgp/LearnJenkins.git'
-'
             }
         }
 
