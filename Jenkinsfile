@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/fadhlihgp/LearnJenkins.git'
+                git 'https://fadhlihgp@github.com/fadhlihgp/LearnJenkins.git
+'
             }
         }
 
