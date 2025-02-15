@@ -2,8 +2,8 @@
 
 services:
   learnjenkinsapi:
-    container_name: learnjenkins_prod
-    image: learnjenkins:latest
+    container_name: learnjenkinsapi_prod
+    image: learnjenkinsapi:latest
     build:
       context: .
       dockerfile: Dockerfile
