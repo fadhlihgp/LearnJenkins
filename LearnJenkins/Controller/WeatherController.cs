@@ -24,7 +24,6 @@ public class WeatherController : ControllerBase
     [HttpGet("list")]
     public IActionResult List()
     {
-        
         var forecast = Enumerable.Range(1, 5).Select(index =>
                 new WeatherForecast
                 (
