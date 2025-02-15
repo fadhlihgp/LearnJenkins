@@ -35,4 +35,19 @@ public class WeatherController : ControllerBase
             .ToArray();
         return Ok(forecast);
     }
+    
+    [HttpGet("detail/{is}")]
+    public IActionResult GetById([FromRoute] int id)
+    {
+        
+        var forecast = Enumerable.Range(1, 5).Select(index =>
+                new WeatherForecast
+                (
+                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                    Random.Shared.Next(-20, 55),
+                    _summaries[Random.Shared.Next(_summaries.Length)]
+                ))
+            .ToArray()[id];
+        return Ok(forecast);
+    }
 }
