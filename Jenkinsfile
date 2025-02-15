@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/username/repository.git'
+                git 'https://github.com/fadhlihgp/LearnJenkins.git'
             }
         }
 
