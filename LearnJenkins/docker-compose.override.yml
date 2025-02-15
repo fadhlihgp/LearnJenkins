@@ -11,7 +11,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:7002
     ports:
-      - "7003:8080"
+      - "7003:8080" 
     volumes:
       - .:/app
     restart: always
