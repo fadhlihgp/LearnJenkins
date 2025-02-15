@@ -1,0 +1,17 @@
+﻿version: '3.8'
+
+services:
+  learnjenkins:
+    container_name: learnjenkins_dev
+    image: learnjenkins-dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7002
+    ports:
+      - "7003:7002"
+    volumes:
+      - .:/app
+    restart: always
