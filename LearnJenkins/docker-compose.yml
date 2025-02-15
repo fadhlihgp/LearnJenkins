@@ -11,5 +11,5 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:7002
     ports:
-      - "7002:7002"
+      - "7002:8080"
     restart: always

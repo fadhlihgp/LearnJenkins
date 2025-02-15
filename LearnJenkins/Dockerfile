@@ -1,7 +1,7 @@
 ﻿# Stage 1: Base Image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 7002
+EXPOSE 80
 
 # Stage 2: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
