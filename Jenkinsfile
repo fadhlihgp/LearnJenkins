@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     environment {
         DOCKER_IMAGE_PROD = "learnjenkinsapi:latest"
         DOCKER_IMAGE_DEV = "learnjenkinsapi-dev:latest"
