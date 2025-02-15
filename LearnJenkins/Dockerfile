@@ -9,7 +9,7 @@ WORKDIR /src
 COPY . .
 RUN dotnet restore
 RUN dotnet build -c Release -o /app/build
-
+ 
 # Stage 3: Publish
 FROM build AS publish
 RUN dotnet publish -c Release -o /app/publish
