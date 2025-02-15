@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t $DOCKER_IMAGE -f Dockerfile ."
+                sh "docker build -t $DOCKER_IMAGE -f LearnJenkins/Dockerfile ."
             }
         }
 
