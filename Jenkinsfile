@@ -45,9 +45,9 @@ pipeline {
             steps {
                 script {
                     if (env.TARGET_ENV == 'Development') {
-                        sh 'docker-compose -f docker-compose.override.yml up -d --build'
+                        sh 'docker-compose -f LearnJenkins/docker-compose.override.yml up -d --build'
                     } else if (env.TARGET_ENV == 'Production') {
-                        sh 'docker-compose -f docker-compose.yml up -d --build'
+                        sh 'docker-compose -f LearnJenkins/docker-compose.yml up -d --build'
                     }
                 }
             }
