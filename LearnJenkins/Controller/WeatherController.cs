@@ -21,7 +21,7 @@ public class WeatherController : ControllerBase
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 
-    [HttpGet]
+    [HttpGet("hello-world")]
     public IActionResult HelloWorld()
     {
         return Ok(new

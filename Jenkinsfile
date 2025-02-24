@@ -23,8 +23,8 @@ pipeline {
                     if (env.GIT_BRANCH == "origin/main" || env.GIT_BRANCH == "origin/master" || env.GIT_BRANCH == "main" || env.GIT_BRANCH == "master") {
                         HOST_PORT = "7001"
                         DOCKER_IMAGE = "learn-jenkins-prod"
-                        HOST_LOG_DIR = "/var/www/Apps/LearnJenkinsDev"
-                        CONTAINER_LOG_DIR = "/var/www/Apps/LearnJenkinsDev"
+                        HOST_LOG_DIR = "/var/www/Apps/LearnJenkinsProd"
+                        CONTAINER_LOG_DIR = "/var/www/Apps/LearnJenkinsProd"
                     } else if (env.GIT_BRANCH == "dev" || env.GIT_BRANCH == "origin/dev") {
                         HOST_PORT = "7002"
                     }
