@@ -33,14 +33,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    sh "docker build -t ${DOCKER_IMAGE}:${VERSION} -f LearnJenkins/Dockerfile ."
-                }
-            }
-        }
-
         stage('Remove Old Container and Image ') {
             steps {
                 script {
@@ -57,6 +49,14 @@ pipeline {
                         echo "Remove old image: ${imageId}"
                         sh "docker rmi -f ${imageId}"
                     }
+                }
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${DOCKER_IMAGE}:${VERSION} -f LearnJenkins/Dockerfile ."
                 }
             }
         }
