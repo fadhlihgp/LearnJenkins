@@ -1,21 +1,15 @@
-﻿# Stage 1: Base Image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 8080
+﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-# Stage 2: Build
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY . .
+WORKDIR /app
+COPY *.csproj ./
 RUN dotnet restore
-RUN dotnet build -c Release -o /app/build
- 
-# Stage 3: Publish
-FROM build AS publish
-RUN dotnet publish -c Release -o /app/publish
+COPY . .
 
-# Stage 4: Final Runtime
-FROM base AS final
+RUN dotnet publish -c Release -o out /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
-CMD ["dotnet", "LearnJenkins.dll"]
+COPY --from=build /app/out ./
+
+EXPOSE 80
+ENTRYPOINT ["dotnet", "LearnJenkins.dll"]
