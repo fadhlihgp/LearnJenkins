@@ -13,22 +13,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
-            }
+                  git branch: '**', credentialsId: 'github-credentials', url: 'https://github.com/fadhlihgp/LearnJenkins.git'
+              }
         }
 
         stage('Set Environment') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == "master") {
+                    if (env.GIT_BRANCH == "origin/main" || env.GIT_BRANCH == "origin/master" || env.GIT_BRANCH == "main" || env.GIT_BRANCH == "master") {
                         HOST_PORT = "7001"
                         DOCKER_IMAGE = "learn-jenkins-prod"
                         HOST_LOG_DIR = "/var/www/Apps/LearnJenkinsDev"
                         CONTAINER_LOG_DIR = "/var/www/Apps/LearnJenkinsDev"
-                    } else if (env.BRANCH_NAME == "dev") {
+                    } else if (env.GIT_BRANCH == "dev" || env.GIT_BRANCH == "origin/dev") {
                         HOST_PORT = "7002"
                     }
-                    echo "Deploying branch ${env.BRANCH_NAME} ke port ${HOST_PORT}"
+                    echo "Deploying branch ${env.GIT_BRANCH} to port ${HOST_PORT}"
                 }
             }
         }
