@@ -28,7 +28,7 @@ pipeline {
                     } else if (env.BRANCH_NAME == "dev") {
                         HOST_PORT = "7002"
                     }
-                    echo "Deploying branch ${env.BRANCH_NAME} ke port ${HOST_PORT}"
+                    echo "Deploying branch ${env.BRANCH_NAME} ke port ${HOST_PORT} PR ${github.event.pull_request.title}"
                 }
             }
         }
